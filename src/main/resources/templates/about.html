@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <mata name="viewport" content="width=device-width, initial-scale=1.0"></mata>
+    <title>关于我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--自定义css-->
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{~/css/me.css}">
+    <!--音乐-->
+    <link rel="stylesheet" href="../static/css/mplayer.css" th:href="@{~/css/mplayer.css}">
+    <link rel="stylesheet" href="../static/css/background.css" th:href="@{~/css/background.css}">
+    <!--轮播图-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{~/css/style.css}">-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/icons/entypo.css" th:href="@{~/icons/entypo.css}">-->
+    <!--背景动图-->
+    <link rel="stylesheet"  href="style.css" th:href="@{~/lib/webbg/style.css}"/>
+    <!--动画效果-->
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{~/css/animate.css}">
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">QQ</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide active"><i class="mini info icon"></i>关于我</a>
+            <div class="right item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+            <div class="music-bg" style="height: 100%;filter: blur(100px);transition:all 0.3s" id="music-bg">
+                <div class="music-mask"></div>
+            </div>
+        </div>
+    </div>
+    <!--缩放小图标-->
+    <a href="#" class="ui menu toggle black button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<div class="snow-container"></div>
+<!--中间内容-->
+<div class="m-container m-padded-tb-big animated fadeIn">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="eleven wide column">
+                <div class="ui segment">
+                    <img src="../static/images/3.jpg" th:src="@{~/images/3.jpg}" alt="" class="ui rounded image">
+                    <img src="../static/images/4.jpg" th:src="@{~/images/3.jpg}" alt="" class="ui rounded image">
+                    <!--<div class='o-sliderContainer' id="pbSliderWrap0" >-->
+                    <!--<div class='o-slider' id='pbSlider0'>-->
+                    <!--<div class="o-slider&#45;&#45;item" data-image="../static/images/6.jpg">-->
+                    <!--<div class="o-slider-textWrap">-->
+                    <!--<h1 class="o-slider-title">This is a title</h1>-->
+                    <!--<span class="a-divider"></span>-->
+                    <!--<h2 class="o-slider-subTitle">This is a sub title</h2>-->
+                    <!--<span class="a-divider"></span>-->
+                    <!--<p class="o-slider-paragraph">This is a sub paragraph This is a sub paragraph This is a sub paragraph This is a sub paragraph This is a sub paragraph This is a sub paragraph This is a sub paragraph </p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="o-slider&#45;&#45;item" data-image="images/me.jpg" onclick="window.open(image)">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+            <div class="five wide column">
+                <div class="ui top attached segment">
+                    <div class="ui header">关于我</div>
+                </div>
+                <div class="ui attached segment">
+                    <p class="m-text">
+                        善良、温柔、善解人意、小鸟依人、聪明、可爱、文静、活泼、冰雪聪明、天使、才女、美丽、可人、羞涩、艳丽、妍丽、美艳、富丽、瑰丽、秀丽、
+                    </p>
+                    <p class="m-text">
+                        斑斓、大度、文雅、标致、美好、优美、艳丽、完美、标致、美妙、美观、俊俏 、气质、端庄、明媚皓齿
+                    </p>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui orange basic left pointing label m-margin-tb-tiny">电影</div>
+                    <div class="ui orange basic left pointing label m-margin-tb-tiny">音乐</div>
+                    <div class="ui orange basic left pointing label m-margin-tb-tiny">小说</div>
+                    <div class="ui orange basic left pointing label m-margin-tb-tiny">旅游</div>
+                    <div class="ui orange basic left pointing label m-margin-tb-tiny">诳街</div>
+                    <div class="ui orange basic left pointing label m-margin-tb-tiny">写剧本</div>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客1</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客2</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客3</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客4</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客5</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客6</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">博客7</div>
+                </div>
+                <div class="ui bottom attached segment">
+                    <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+                    <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                    <a href="#" class="ui qq circular icon button" data-content="123123" data-position="top center"><i
+                            class="qq icon"></i></a>
+                    <a href="#" class="ui circular icon button"><i class="weibo icon"></i></a>
+                    <a href="#" class="ui circular icon button"><i class="image icon"></i></a>
+                    <a href="#" class="ui circular icon button"><i class="music icon"></i></a>
+                </div>
+                <div class="ui wechat-qr flowing popup transition hidden">
+                    <img src="../static/images/wechat.jpg" alt="" class="ui rounded image" style="width: 100px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--音乐播放器-->
+<div class="m-fixed m-right-bottom m-mobile-hide">
+    <div class="mp">
+        <div class="mp-box">
+            <img src="../static/img/mplayer_error.png" alt="music cover" class="mp-cover">
+            <div class="mp-info">
+                <p class="mp-name">燕归巢</p>
+                <p class="mp-singer">许嵩</p>
+                <p><span class="mp-time-current">00:00</span>/<span class="mp-time-all">00:00</span></p>
+            </div>
+            <div class="mp-btn">
+                <button class="mp-prev" title="上一首"></button>
+                <button class="mp-pause" title="播放"></button>
+                <button class="mp-next" title="下一首"></button>
+                <button class="mp-mode" title="播放模式"></button>
+                <div class="mp-vol">
+                    <button class="mp-vol-img" title="静音"></button>
+                    <div class="mp-vol-range" data-range_min="0" data-range_max="100" data-cur_min="00">
+                        <div class="mp-vol-current"></div>
+                        <div class="mp-vol-circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mp-pro">
+                <div class="mp-pro-current"></div>
+            </div>
+            <div class="mp-menu">
+                <button class="mp-list-toggle"></button>
+                <button class="mp-lrc-toggle"></button>
+            </div>
+        </div>
+        <button class="mp-toggle">
+            <span class="mp-toggle-img"></span>
+        </button>
+        <div class="mp-lrc-box">
+            <ul class="mp-lrc"></ul>
+        </div>
+        <button class="mp-lrc-close"></button>
+        <div class="mp-list-box">
+            <ul class="mp-list-title"></ul>
+            <table class="mp-list-table">
+                <thead>
+                <tr>
+                    <th>歌名</th>
+                    <th>歌手</th>
+                    <th>时长</th>
+                </tr>
+                </thead>
+                <tbody class="mp-list"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width:110px;">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">Email：348071410@qq.com</a>
+                    <a href="#" class="item m-text-thin">QQ：348071410</a>
+                    <a href="#" class="item m-text-thin">微信：ZX_1st</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+            </div>
+        </div>
+        <!--底部的分割线-->
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2017 - 2019 Buring_Ice Designed by
+            Buring_Ice</p>
+    </div>
+</footer>
+<!--背景图片-->
+<div id="slideshow" style="position: absolute;z-index: -1">
+    <img src="images/image1.jpg" th:src="@{~/lib/webbg/images/image1.jpg}" alt="Slideshow Image 1" class="active" />
+    <img src="images/image2.jpg" th:src="@{~/lib/webbg/images/image2.jpg}" alt="Slideshow Image 2" />
+    <img src="images/image3.jpg" th:src="@{~/lib/webbg/images/image3.jpg}" alt="Slideshow Image 3" />
+    <img src="images/image1.jpg" th:src="@{~/lib/webbg/images/image1.jpg}" alt="Slideshow Image 4" />
+    <img src="images/image2.jpg" th:src="@{~/lib/webbg/images/image2.jpg}" alt="Slideshow Image 5" />
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--背景图片-->
+<script type="text/javascript">
+
+    function slideSwitch() {
+        var $active = $('#slideshow IMG.active');
+
+        if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+        // use this to pull the images in the order they appear in the markup
+        var $next =  $active.next().length ? $active.next()
+            : $('#slideshow IMG:first');
+
+        // uncomment the 3 lines below to pull the images in random order
+
+        // var $sibs  = $active.siblings();
+        // var rndNum = Math.floor(Math.random() * $sibs.length );
+        // var $next  = $( $sibs[ rndNum ] );
+
+
+        $active.addClass('last-active');
+
+        $next.css({opacity: 0.0})
+            .addClass('active')
+            .animate({opacity: 1.0}, 1000, function() {
+                $active.removeClass('active last-active');
+            });
+    }
+
+    $(function() {
+        setInterval( "slideSwitch()", 2000 );
+    });
+
+</script>
+<!--自定义-->
+<script>
+    <!--三短横线点击事件-->
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.wechat').popup({
+        popup: $('.wechat-qr'),
+        position: 'top center'
+    });
+
+    $('.qq').popup();
+</script>
+
+<!--音乐-->
+<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+<script src="../static/js/mplayer.js" th:src="@{~/js/mplayer.js}"></script>
+<script src="../static/js/mplayer-list.js" th:src="@{~/js/mplayer-list.js}"></script>
+<script src="../static/js/mplayer-functions.js" th:src="@{~/js/mplayer-functions.js}"></script>
+<script src="http://cdn.bootcss.com/jquery-nstslider/1.0.13/jquery.nstSlider.min.js"></script>
+<script>
+    var modeText = ['顺序播放', '单曲循环', '随机播放', '列表循环'];
+    var player = new MPlayer({
+        // 容器选择器名称
+        containerSelector: '.mp',
+        // 播放列表
+        songList: mplayer_song,
+        // 专辑图片错误时显示的图片
+        defaultImg: 'img/mplayer_error.png',
+        // 自动播放
+        autoPlay: true,
+        // 播放模式(0->顺序播放,1->单曲循环,2->随机播放,3->列表循环(默认))
+        playMode: 0,
+        playList: 0,
+        playSong: 0,
+        // 当前歌词距离顶部的距离
+        lrcTopPos: 34,
+        // 列表模板，用${变量名}$插入模板变量
+        listFormat: '<tr><td>${name}$</td><td>${singer}$</td><td>${time}$</td></tr>',
+        // 音量滑块改变事件名称
+        volSlideEventName: 'change',
+        // 初始音量
+        defaultVolume: 80
+    }, function () {
+        // 绑定事件
+        this.on('afterInit', function () {
+            console.log('播放器初始化完成，正在准备播放');
+        }).on('beforePlay', function () {
+            var $this = this;
+            var song = $this.getCurrentSong(true);
+            var songName = song.name + ' - ' + song.singer;
+            console.log('即将播放' + songName + '，return false;可以取消播放');
+        }).on('timeUpdate', function () {
+            var $this = this;
+            console.log('当前歌词：' + $this.getLrc());
+        }).on('end', function () {
+            var $this = this;
+            var song = $this.getCurrentSong(true);
+            var songName = song.name + ' - ' + song.singer;
+            console.log(songName + '播放完毕，return false;可以取消播放下一曲');
+        }).on('mute', function () {
+            var status = this.getIsMuted() ? '已静音' : '未静音';
+            console.log('当前静音状态：' + status);
+        }).on('changeMode', function () {
+            var $this = this;
+            var mode = modeText[$this.getPlayMode()];
+            $this.dom.container.find('.mp-mode').attr('title', mode);
+            console.log('播放模式已切换为：' + mode);
+        });
+    });
+
+
+    $(document.body).append(player.audio); // 测试用
+
+    setEffects(player);
+
+
+</script>
+
+<!--轮播图js-->
+<script src='../static/js/hammer.min.js' th:src="@{~/js/hammer.min.js}"></script>
+<script src='../static/js/slider.js' th:src="@{~/js/slider.js}"></script>
+<script>
+    $('#pbSlider0').pbTouchSlider({
+        slider_Wrap: '#pbSliderWrap0',
+        slider_Threshold: 10,
+        slider_Speed: 600,
+        slider_Ease: 'ease-out',
+        slider_Drag: true,
+        slider_Arrows: {
+            enabled: true
+        },
+        slider_Dots: {
+            class: '.o-slider-pagination',
+            enabled: true,
+            preview: false
+        },
+        slider_Breakpoints: {
+            default: {
+                height: 500
+            },
+            tablet: {
+                height: 350,
+                media: 1024
+            },
+            smartphone: {
+                height: 250,
+                media: 768
+            }
+        }
+    });
+</script>
+<!--雪花JS-->
+<script src="http://itbyc.com/templets/yang/js/snow.js"></script>
+<style type="text/css">.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100001;
+}</style>
+
+
+
+</body>
+</html>
