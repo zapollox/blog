@@ -42,4 +42,24 @@ public class indexController {
         model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
         return "index";
     }
+
+    @GetMapping("/types")
+    public String types() {
+        return "types";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+    @GetMapping("/archives")
+    public String archives() {
+        return "archives";
+    }
+
+    @GetMapping("/tags")
+    public String tags() {
+        return "tags";
+    }
 }
