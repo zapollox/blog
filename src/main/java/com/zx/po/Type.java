@@ -7,16 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by leno on 2017/12/28.
+ * Created by limi on 2017/10/14.
  */
 @Entity
 @Table(name = "t_type")
 public class Type {
+
     @Id
     @GeneratedValue
     private Long id;
-    @NotBlank(message = "分类名称不为空")
+    @NotBlank(message = "分类名称不能为空")
     private String name;
+
     @OneToMany(mappedBy = "type")
     private List<Blog> blogs = new ArrayList<>();
 
@@ -46,7 +48,6 @@ public class Type {
     public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
     }
-
 
     @Override
     public String toString() {

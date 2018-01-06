@@ -6,11 +6,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by leno on 2017/12/28.
+ * Created by limi on 2017/10/14.
  */
 @Entity
 @Table(name = "t_user")
 public class User {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -18,12 +19,13 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private String avatar;//头像
+    private String avatar;
     private Integer type;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
+
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs = new ArrayList<>();
 
@@ -102,6 +104,7 @@ public class User {
         this.updateTime = updateTime;
     }
 
+
     public List<Blog> getBlogs() {
         return blogs;
     }
@@ -114,7 +117,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", nikename='" + nickname + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

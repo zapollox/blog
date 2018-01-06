@@ -4,6 +4,7 @@ import com.zx.NotFoundException;
 import com.zx.service.BlogService;
 import com.zx.service.TagService;
 import com.zx.service.TypeService;
+import com.zx.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,10 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Created by leno on 2017/12/27.
+ * Created by limi on 2017/10/13.
  */
 @Controller
-public class indexController {
+public class IndexController {
+
     @Autowired
     private BlogService blogService;
 
@@ -30,11 +32,9 @@ public class indexController {
     private TagService tagService;
 
     @GetMapping("/")
-    public String welcome() {
+    public String welcome(){
         return "welcome";
     }
-
-
     @GetMapping("/index")
     public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
@@ -54,23 +54,16 @@ public class indexController {
         return "search";
     }
 
-    @GetMapping("/types")
-    public String types() {
-        return "types";
+    @GetMapping("/blog/{id}")
+    public String blog(@PathVariable Long id,Model model) {
+        model.addAttribute("blog", blogService.getAndConvert(id));
+        return "blog";
     }
 
-    @GetMapping("/about")
-    public String about() {
-        return "about";
+    @GetMapping("/footer/newblog")
+    public String newblogs(Model model) {
+        model.addAttribute("newblogs", blogService.listRecommendBlogTop(3));
+        return "_fragments :: newblogList";
     }
 
-    @GetMapping("/archives")
-    public String archives() {
-        return "archives";
-    }
-
-    @GetMapping("/tags")
-    public String tags() {
-        return "tags";
-    }
 }

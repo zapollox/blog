@@ -46,114 +46,56 @@
 <br>
 <br>
 <!--中间内容-->
-<div class="m-container-small m-padded-tb-big animated fadeIn">
+<div  class="m-container-small m-padded-tb-big">
     <div class="ui container">
+        <!--header-->
         <div class="ui top attached padded segment">
             <div class="ui middle aligned two column grid">
                 <div class="column">
                     <h3 class="ui teal header">归档</h3>
                 </div>
                 <div class="right aligned column">
-                    共<h3 class="ui orange header m-inline-block m-text-thin">14</h3>篇博客
+                    共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}"> 114 </h2> 篇博客
                 </div>
             </div>
         </div>
-        <h3 class="ui center inverted aligned header">2018</h3>
-        <div class="ui fluid vertical menu">
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-        </div>
-        <h3 class="ui center inverted aligned header">2017</h3>
-        <div class="ui fluid vertical menu">
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-        </div>
-        <h3 class="ui center inverted aligned header">2016</h3>
-        <div class="ui fluid vertical menu">
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-        </div>
-        <h3 class="ui center inverted aligned header">2015</h3>
-        <div class="ui fluid vertical menu">
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-            <a href="#" class="item" target="_blank">
-                    <span>
-                        <i class="mini circle teal icon"></i>关于可以练习的清单
-                        <div class="ui teal basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
-            </a>
-        </div>
+
+        <th:block th:each="item : ${archiveMap}">
+            <h3 class="ui center aligned header" th:text="${item.key}">2017</h3>
+            <div class="ui fluid vertical menu">
+                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
+          <span>
+            <i class="mini teal circle icon"></i><span th:text="${blog.title}">关于刻意练习的清单</span>
+            <div class="ui teal basic left pointing label m-padded-mini " th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>
+          </span>
+                    <div class="ui orange basic left pointing label m-padded-mini " th:text="${blog.flag}">原创</div>
+                </a>
+                <!--/*-->
+                <a href="#" target="_blank" class="item">
+          <span>
+            <i class="mini teal circle icon"></i>关于刻意练习的清单
+            <div class="ui teal basic left pointing label m-padded-mini ">9月03</div>
+          </span>
+                    <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+          <span>
+            <i class="mini teal circle icon"></i>关于刻意练习的清单
+            <div class="ui teal basic left pointing label m-padded-mini ">9月03</div>
+          </span>
+                    <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+          <span>
+            <i class="mini teal circle icon"></i>关于刻意练习的清单
+            <div class="ui teal basic left pointing label m-padded-mini ">9月03</div>
+          </span>
+                    <div class="ui orange basic left pointing label m-padded-mini ">原创</div>
+                </a>
+                <!--*/-->
+            </div>
+        </th:block>
+
     </div>
 </div>
 <br>

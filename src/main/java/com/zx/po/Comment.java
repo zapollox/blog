@@ -6,29 +6,32 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by leno on 2017/12/28.
+ * Created by limi on 2017/10/14.
  */
 @Entity
 @Table(name = "t_comment")
 public class Comment {
+
     @Id
     @GeneratedValue
     private Long id;
-    private String nickname;//昵称
-    private String email;//邮箱
-    private String content;//内容
-    private String avatar;//头像
+    private String nickname;
+    private String email;
+    private String content;
+    private String avatar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
     @ManyToOne
     private Blog blog;
-    //自关联：作为父类对应多个子类
+
     @OneToMany(mappedBy = "parentComment")
     private List<Comment> replyComments = new ArrayList<>();
-    //自关联：作为子类对应一个父类
+
     @ManyToOne
     private Comment parentComment;
+
+    private boolean adminComment;
 
     public Comment() {
     }
@@ -105,6 +108,14 @@ public class Comment {
         this.parentComment = parentComment;
     }
 
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
+    }
+
     @Override
     public String toString() {
         return "Comment{" +
@@ -114,6 +125,10 @@ public class Comment {
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
+                ", blog=" + blog +
+                ", replyComments=" + replyComments +
+                ", parentComment=" + parentComment +
+                ", adminComment=" + adminComment +
                 '}';
     }
 }
