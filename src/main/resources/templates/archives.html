@@ -61,7 +61,7 @@
         </div>
 
         <th:block th:each="item : ${archiveMap}">
-            <h3 class="ui center aligned header" th:text="${item.key}">2017</h3>
+            <h3 class="ui center teal aligned header" th:text="${item.key}">2017</h3>
             <div class="ui fluid vertical menu">
                 <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
           <span>
@@ -145,7 +145,7 @@
 <!--背景图片-->
 <div id="slideshow" style="position: absolute;z-index: -1">
     <img src="images/image1.jpg" th:src="@{~/lib/webbg/images/image7.jpg}" alt="Slideshow Image 1" class="active" />
-    <img src="images/image2.jpg" th:src="@{~/lib/webbg/images/image6.jpg}" alt="Slideshow Image 2" />
+    <img src="images/image2.jpg" th:src="@{~/lib/webbg/images/image8.jpg}" alt="Slideshow Image 2" />
     <img src="images/image3.jpg" th:src="@{~/lib/webbg/images/image2.jpg}" alt="Slideshow Image 3" />
 </div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

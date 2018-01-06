@@ -61,7 +61,7 @@
                     <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
                         <div class="ui mobile reversed stackable grid">
                             <div class="eleven wide column">
-                                <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a></h3>
+                                <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}"  class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a></h3>
                                 <p class="m-text" th:text="|${blog.description}......|">
                                     Spring是一个开放源代码的设计层面框架，他解决的是业务逻辑层和其他各层的松耦合问题，因此它将面向接口的编程思想贯穿整个系统应用。Spring是于2003
                                     年兴起的一个轻量级的Java 开发框架，由Rod Johnson创建。简单来说，Spring是一个分层的JavaSE/EEfull-stack(一站式)
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="five wide middle aligned column">
-                                <a href="#"  th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                <a href="#"  th:href="@{/blog/{id}(id=${blog.id})}" >
                                     <img src="https://picsum.photos/800/400?image=0" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
                                 </a>
                             </div>

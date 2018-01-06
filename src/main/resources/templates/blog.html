@@ -443,7 +443,9 @@ h5,h6{font-size:1em;}
 
             <!--标签-->
             <div class="m-padded-lr-responsive">
-                <div class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</div>
+                <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}" >
+                    方法论
+                </a>
             </div>
 
             <!--赞赏-->
@@ -456,11 +458,11 @@ h5,h6{font-size:1em;}
                         <div class="ui images" style="font-size: inherit !important;">
                             <div class="image">
                                 <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded bordered image" style="width: 120px">
-                                <div>支付宝</div>
+                                <div style="color: deepskyblue">支付宝</div>
                             </div>
                             <div class="image">
                                 <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded bordered image" style="width: 120px">
-                                <div>微信</div>
+                                <div  style="color: limegreen">微信</div>
                             </div>
                         </div>
                     </div>
@@ -601,7 +603,9 @@ h5,h6{font-size:1em;}
 </script>
 <!--二维码生成-->
 <script src="../static/lib/qrcode/qrcode.js" th:src="@{~/lib/qrcode/qrcode.js}"></script>
-<script>
+<script th:inline="javascript">
+    var serurl = /*[[#{blog.serurl}]]*/"127.0.0.1:8080";
+    var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
     var qrcode = new QRCode("qrcode", {
         text: "http://jindo.dev.naver.com/collie",
         width: 110,
